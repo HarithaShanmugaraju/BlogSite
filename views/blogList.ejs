@@ -1,0 +1,46 @@
+<%- include("partials/header.ejs") %>
+
+<main>
+   <% if(blogList.length < 0){%>
+    <h1> No blog post available</h1>
+    
+   <% } else {%>
+    <h1> Your blog list</h1>
+   <% } %>
+
+   <div class="overflow">
+         <%   for(let index=0; index < blogList.length; index++){%>
+           <div class="blog-card">
+        
+              <span class="blog-number"> 
+                  <%= index+1; %> 
+               </span>
+              <h4>
+                  <%= blogList[index].title; %>
+              </h4>
+              <p>
+                 <%=    blogList[index].description?.slice(0,300); %>
+                  <% if(blogList[index].description?.length >299) { %>
+                   <a href="/blogDetails/<%= blogList[index].id %>">View Blog</a>
+                  <% } %> 
+             </p>
+
+             <div class="btn">
+                  <form action="/delete/<%= blogList[index].id %>" method="post">
+
+                      <button>Delete</button>
+
+                  </form>
+                   <a href="/edit/<%= blogList[index].id %>"> Edit</a>
+              </div>
+         </div>
+
+
+
+     <% }%>
+    
+    
+    
+    </div>
+</main>
+<%- include("partials/footer.ejs") %>
