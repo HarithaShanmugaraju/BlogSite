@@ -1,15 +1,13 @@
 <%- include("partials/header.ejs") %>
-<div>
-
-<div>
+<div class="content">
+  <div>
     <h1> <%= blogDetails?.title %> </h1>
-
     <a href="/edit/<%= blogDetails.id %>"> Edit </a>
-</div>
+  </div>
 
-<div>
+  <div>
     <p> <%= blogDetails?.description %></p>
-</div>
+  </div>
 
 </div>
 <%- include("partials/footer.ejs") %>
